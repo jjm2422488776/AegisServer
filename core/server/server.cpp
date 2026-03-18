@@ -15,7 +15,8 @@
 #include <sstream>
 
 Server::Server(const std::string& ip, int port, int threadPoolSize, int idleTimeoutMs,
-               int maxConnectionsPerIp, const std::string& staticRoot)
+               int maxConnectionsPerIp, const std::string& staticRoot,
+               int rateLimitMaxRequests, int rateLimitWindowMs)
     : ip_(ip),
       port_(port),
       listenFd_(-1),
@@ -23,7 +24,8 @@ Server::Server(const std::string& ip, int port, int threadPoolSize, int idleTime
       connectionGuard_(maxConnectionsPerIp),
       threadPool_(threadPoolSize),
       timerManager_(idleTimeoutMs),
-      staticRoot_(staticRoot) {
+      staticRoot_(staticRoot),
+      rateLimiter_(rateLimitMaxRequests, rateLimitWindowMs) {
     listenFd_ = net::SocketUtil::createListenFd(ip_, port_);
     epoller_.addFd(listenFd_, EPOLLIN);
 }
@@ -70,8 +72,9 @@ void Server::start() {
         handleProcessCompletions();
 
         timerManager_.tick([this](int fd) {
-            Logger::instance().info("timeout close fd=" + std::to_string(fd));
-            closeClient(fd);
+        Logger::instance().info("timeout close fd=" + std::to_string(fd));
+        metrics_.incTimeoutClosed();
+        closeClient(fd);
         });
     }
 }
@@ -144,7 +147,32 @@ void Server::handleClientRead(int clientFd) {
         closeClient(clientFd);
         return;
     }
+    if (!rateLimiter_.allow(conn.clientIp())) {
+    metrics_.incTooManyRequests();
+    Logger::instance().warn("rate limit hit for ip=" + conn.clientIp());
 
+    std::ifstream file(staticRoot_ + "/429.html");
+    std::string body;
+
+    if (file.is_open()) {
+        std::ostringstream ss;
+        ss << file.rdbuf();
+        body = ss.str();
+    } else {
+        body = "<html><body><h1>429 Too Many Requests</h1></body></html>";
+    }
+
+    std::string response =
+        "HTTP/1.1 429 Too Many Requests\r\n"
+        "Content-Type: text/html; charset=utf-8\r\n"
+        "Content-Length: " + std::to_string(body.size()) + "\r\n"
+        "Connection: close\r\n"
+        "\r\n" + body;
+
+    conn.setDirectResponse(response, false);
+    epoller_.modFd(clientFd, EPOLLOUT);
+    return;
+    }
     timerManager_.refresh(clientFd);
 
     conn.markProcessing(true);
@@ -177,14 +205,22 @@ void Server::handleClientWrite(int clientFd) {
 
     HttpConn& conn = *(it->second);
 
+    long long before = conn.bytesPendingToSend();
+
     if (!conn.write()) {
         closeClient(clientFd);
         return;
     }
 
+    long long after = conn.bytesPendingToSend();
+    if (before > after) {
+        metrics_.addBytesSent(before - after);
+    }
+
     timerManager_.refresh(clientFd);
 
     if (conn.isKeepAlive()) {
+        metrics_.incKeepAliveHits();
         conn.reset();
         epoller_.modFd(clientFd, EPOLLIN);
     } else {

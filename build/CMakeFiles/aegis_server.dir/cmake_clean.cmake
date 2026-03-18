@@ -27,6 +27,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.o.d"
   "CMakeFiles/aegis_server.dir/modules/guard/connection_guard.cpp.o"
   "CMakeFiles/aegis_server.dir/modules/guard/connection_guard.cpp.o.d"
+  "CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o"
+  "CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o.d"
   "aegis_server"
   "aegis_server.pdb"
 )

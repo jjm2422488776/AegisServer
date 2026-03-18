@@ -29,34 +29,34 @@ make -j
 运行
 
 在项目根目录执行：
-
 ./build/aegis_server
+
 配置
-
 配置文件位于：
-
 config/server.conf
 
 支持配置：
-
 listen_ip
-
 listen_port
-
 thread_pool_size
-
 idle_timeout_ms
-
 max_connections_per_ip
-
 static_root
-
 Benchmark
 
 使用 ab：
-
 ./benchmark/ab_test.sh 127.0.0.1 8080 / 1000 50
 
 使用 wrk：
-
 wrk -t4 -c100 -d10s -s benchmark/wrk.lua http://127.0.0.1:8080
+
+- 基于 IP 的固定窗口限流
+- 扩展指标统计：
+  - total_requests
+  - successful_requests
+  - not_found_requests
+  - forbidden_requests
+  - too_many_requests
+  - timeout_closed
+  - keep_alive_hits
+  - bytes_sent

@@ -209,10 +209,24 @@ CMakeFiles/aegis_server.dir/modules/guard/connection_guard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aegis_server.dir/modules/guard/connection_guard.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/AegisServer/modules/guard/connection_guard.cpp -o CMakeFiles/aegis_server.dir/modules/guard/connection_guard.cpp.s
 
+CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o: CMakeFiles/aegis_server.dir/flags.make
+CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o: ../modules/guard/rate_limiter.cpp
+CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o: CMakeFiles/aegis_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AegisServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o -MF CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o.d -o CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o -c /root/AegisServer/modules/guard/rate_limiter.cpp
+
+CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/AegisServer/modules/guard/rate_limiter.cpp > CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.i
+
+CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/AegisServer/modules/guard/rate_limiter.cpp -o CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.s
+
 CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.o: CMakeFiles/aegis_server.dir/flags.make
 CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.o: ../core/threadpool/thread_pool.cpp
 CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.o: CMakeFiles/aegis_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AegisServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AegisServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.o -MF CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.o.d -o CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.o -c /root/AegisServer/core/threadpool/thread_pool.cpp
 
 CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.s: cmake_force
 CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.o: CMakeFiles/aegis_server.dir/flags.make
 CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.o: ../core/timer/timer_manager.cpp
 CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.o: CMakeFiles/aegis_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AegisServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AegisServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.o -MF CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.o.d -o CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.o -c /root/AegisServer/core/timer/timer_manager.cpp
 
 CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.s: cmake_force
 CMakeFiles/aegis_server.dir/core/config/config.cpp.o: CMakeFiles/aegis_server.dir/flags.make
 CMakeFiles/aegis_server.dir/core/config/config.cpp.o: ../core/config/config.cpp
 CMakeFiles/aegis_server.dir/core/config/config.cpp.o: CMakeFiles/aegis_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AegisServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/aegis_server.dir/core/config/config.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AegisServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/aegis_server.dir/core/config/config.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/aegis_server.dir/core/config/config.cpp.o -MF CMakeFiles/aegis_server.dir/core/config/config.cpp.o.d -o CMakeFiles/aegis_server.dir/core/config/config.cpp.o -c /root/AegisServer/core/config/config.cpp
 
 CMakeFiles/aegis_server.dir/core/config/config.cpp.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/aegis_server.dir/core/config/config.cpp.s: cmake_force
 CMakeFiles/aegis_server.dir/core/log/logger.cpp.o: CMakeFiles/aegis_server.dir/flags.make
 CMakeFiles/aegis_server.dir/core/log/logger.cpp.o: ../core/log/logger.cpp
 CMakeFiles/aegis_server.dir/core/log/logger.cpp.o: CMakeFiles/aegis_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AegisServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/aegis_server.dir/core/log/logger.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AegisServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/aegis_server.dir/core/log/logger.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/aegis_server.dir/core/log/logger.cpp.o -MF CMakeFiles/aegis_server.dir/core/log/logger.cpp.o.d -o CMakeFiles/aegis_server.dir/core/log/logger.cpp.o -c /root/AegisServer/core/log/logger.cpp
 
 CMakeFiles/aegis_server.dir/core/log/logger.cpp.i: cmake_force
@@ -277,6 +291,7 @@ aegis_server_OBJECTS = \
 "CMakeFiles/aegis_server.dir/core/buffer/buffer.cpp.o" \
 "CMakeFiles/aegis_server.dir/core/metrics/metrics.cpp.o" \
 "CMakeFiles/aegis_server.dir/modules/guard/connection_guard.cpp.o" \
+"CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o" \
 "CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.o" \
 "CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.o" \
 "CMakeFiles/aegis_server.dir/core/config/config.cpp.o" \
@@ -295,13 +310,14 @@ aegis_server: CMakeFiles/aegis_server.dir/core/http/http_conn.cpp.o
 aegis_server: CMakeFiles/aegis_server.dir/core/buffer/buffer.cpp.o
 aegis_server: CMakeFiles/aegis_server.dir/core/metrics/metrics.cpp.o
 aegis_server: CMakeFiles/aegis_server.dir/modules/guard/connection_guard.cpp.o
+aegis_server: CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o
 aegis_server: CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.o
 aegis_server: CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.o
 aegis_server: CMakeFiles/aegis_server.dir/core/config/config.cpp.o
 aegis_server: CMakeFiles/aegis_server.dir/core/log/logger.cpp.o
 aegis_server: CMakeFiles/aegis_server.dir/build.make
 aegis_server: CMakeFiles/aegis_server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/AegisServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable aegis_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/AegisServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable aegis_server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/aegis_server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

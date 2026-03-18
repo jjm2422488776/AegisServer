@@ -39,7 +39,24 @@ int HttpConn::fd() const {
 const std::string& HttpConn::clientIp() const {
     return clientIp_;
 }
+void HttpConn::setDirectResponse(const std::string& response, bool keepAlive) {
+    writeBuffer_.retrieveAll();
+    response_.unmapFile();
+    mappedBytesSent_ = 0;
+    keepAlive_ = keepAlive;
+    writeBuffer_.append(response);
+}
 
+long long HttpConn::bytesPendingToSend() const {
+    long long headerBytes = static_cast<long long>(writeBuffer_.readableBytes());
+    long long fileBytes = 0;
+
+    if (response_.hasFile()) {
+        fileBytes = static_cast<long long>(response_.mappedFileLen() - mappedBytesSent_);
+    }
+
+    return headerBytes + fileBytes;
+}
 bool HttpConn::read() {
     char buf[4096];
     while (true) {

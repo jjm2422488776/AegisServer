@@ -17,11 +17,16 @@ int main() {
         int threadPoolSize = config.getInt("thread_pool_size", 4);
         int idleTimeoutMs = config.getInt("idle_timeout_ms", 15000);
         int maxConnectionsPerIp = config.getInt("max_connections_per_ip", 3);
+        int rateLimitMaxRequests = config.getInt("rate_limit_max_requests", 20);
+        int rateLimitWindowMs = config.getInt("rate_limit_window_ms", 1000);
         std::string staticRoot = config.getString("static_root", "static");
+
 
         Logger::instance().info("config loaded successfully");
 
-        Server server(ip, port, threadPoolSize, idleTimeoutMs, maxConnectionsPerIp, staticRoot);
+        Server server(ip, port, threadPoolSize, idleTimeoutMs,
+              maxConnectionsPerIp, staticRoot,
+              rateLimitMaxRequests, rateLimitWindowMs);
         server.start();
     } catch (const std::exception& ex) {
         Logger::instance().error(std::string("fatal: ") + ex.what());

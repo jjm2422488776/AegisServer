@@ -11,11 +11,13 @@
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
+#include "modules/guard/rate_limiter.h"
 
 class Server {
 public:
     Server(const std::string& ip, int port, int threadPoolSize, int idleTimeoutMs,
-       int maxConnectionsPerIp, const std::string& staticRoot);
+       int maxConnectionsPerIp, const std::string& staticRoot,
+       int rateLimitMaxRequests, int rateLimitWindowMs);
     ~Server();
 
     void start();
@@ -41,4 +43,5 @@ private:
     ThreadPool threadPool_;
     TimerManager timerManager_;
     std::mutex connMutex_;
+    RateLimiter rateLimiter_;
 };

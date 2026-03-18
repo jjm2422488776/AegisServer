@@ -20,6 +20,7 @@ bool HttpResponse::buildResponse(const std::string& requestPath, bool keepAlive,
     metrics.incTotalRequests();
 
     if (requestPath == "/metrics") {
+        metrics.incSuccessfulRequests();
         buildJsonResponse(metrics.toJson(), keepAlive);
         return true;
     }
@@ -41,7 +42,7 @@ bool HttpResponse::buildResponse(const std::string& requestPath, bool keepAlive,
         metrics.incNotFoundRequests();
         return buildFileResponse(staticRoot_+"/404.html", 404, "Not Found", false);
     }
-
+    metrics.incSuccessfulRequests();
     return buildFileResponse(fullPath, 200, "OK", keepAlive);
 }
 

@@ -51,6 +51,11 @@
 },
 {
   "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o -c /root/AegisServer/modules/guard/rate_limiter.cpp",
+  "file": "/root/AegisServer/modules/guard/rate_limiter.cpp"
+},
+{
+  "directory": "/root/AegisServer/build",
   "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.o -c /root/AegisServer/core/threadpool/thread_pool.cpp",
   "file": "/root/AegisServer/core/threadpool/thread_pool.cpp"
 },

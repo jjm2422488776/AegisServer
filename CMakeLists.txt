@@ -30,8 +30,10 @@ add_executable(aegis_server
     core/buffer/buffer.cpp
     core/metrics/metrics.cpp
     modules/guard/connection_guard.cpp
+    modules/guard/rate_limiter.cpp
     core/threadpool/thread_pool.cpp
     core/timer/timer_manager.cpp
     core/config/config.cpp
     core/log/logger.cpp
+    
 )

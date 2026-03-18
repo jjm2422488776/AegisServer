@@ -22,6 +22,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/root/AegisServer/core/threadpool/thread_pool.cpp" "CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.o" "gcc" "CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.o.d"
   "/root/AegisServer/core/timer/timer_manager.cpp" "CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.o" "gcc" "CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.o.d"
   "/root/AegisServer/modules/guard/connection_guard.cpp" "CMakeFiles/aegis_server.dir/modules/guard/connection_guard.cpp.o" "gcc" "CMakeFiles/aegis_server.dir/modules/guard/connection_guard.cpp.o.d"
+  "/root/AegisServer/modules/guard/rate_limiter.cpp" "CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o" "gcc" "CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o.d"
   )
 
 # Targets to which this target links.

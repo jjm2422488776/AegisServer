@@ -465,6 +465,30 @@ modules/guard/connection_guard.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/aegis_server.dir/build.make CMakeFiles/aegis_server.dir/modules/guard/connection_guard.cpp.s
 .PHONY : modules/guard/connection_guard.cpp.s
 
+modules/guard/rate_limiter.o: modules/guard/rate_limiter.cpp.o
+.PHONY : modules/guard/rate_limiter.o
+
+# target to build an object file
+modules/guard/rate_limiter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/aegis_server.dir/build.make CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.o
+.PHONY : modules/guard/rate_limiter.cpp.o
+
+modules/guard/rate_limiter.i: modules/guard/rate_limiter.cpp.i
+.PHONY : modules/guard/rate_limiter.i
+
+# target to preprocess a source file
+modules/guard/rate_limiter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/aegis_server.dir/build.make CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.i
+.PHONY : modules/guard/rate_limiter.cpp.i
+
+modules/guard/rate_limiter.s: modules/guard/rate_limiter.cpp.s
+.PHONY : modules/guard/rate_limiter.s
+
+# target to generate assembly for a file
+modules/guard/rate_limiter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/aegis_server.dir/build.make CMakeFiles/aegis_server.dir/modules/guard/rate_limiter.cpp.s
+.PHONY : modules/guard/rate_limiter.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -516,6 +540,9 @@ help:
 	@echo "... modules/guard/connection_guard.o"
 	@echo "... modules/guard/connection_guard.i"
 	@echo "... modules/guard/connection_guard.s"
+	@echo "... modules/guard/rate_limiter.o"
+	@echo "... modules/guard/rate_limiter.i"
+	@echo "... modules/guard/rate_limiter.s"
 .PHONY : help
 
 

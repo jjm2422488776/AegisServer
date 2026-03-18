@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 HOST=${1:-127.0.0.1}
-PORT=${2:-8080}
+PORT=${2:-9222}
 PATH_URL=${3:-/}
 REQUESTS=${4:-1000}
 CONCURRENCY=${5:-50}

@@ -192,6 +192,7 @@ CMakeFiles/aegis_server.dir/core/server/server.cpp.o: \
  /root/AegisServer/modules/guard/connection_guard.h \
  /root/AegisServer/core/config/config.h /usr/include/c++/11/unordered_set \
  /usr/include/c++/11/bits/unordered_set.h \
+ /root/AegisServer/modules/guard/rate_limiter.h \
  /root/AegisServer/core/net/socket_util.h \
  /root/AegisServer/core/log/logger.h /usr/include/arpa/inet.h \
  /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/sys/socket.h \

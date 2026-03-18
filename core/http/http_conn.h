@@ -12,7 +12,8 @@ class HttpConn {
 public:
     HttpConn();
     explicit HttpConn(int fd);
-
+    void setDirectResponse(const std::string& response, bool keepAlive);
+    long long bytesPendingToSend() const;
     void init(int fd, const std::string& clientIp, const std::string& staticRoot);
     int fd() const;
     const std::string& clientIp() const;
