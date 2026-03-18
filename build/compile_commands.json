@@ -1,0 +1,72 @@
+[
+{
+  "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/app/main.cpp.o -c /root/AegisServer/app/main.cpp",
+  "file": "/root/AegisServer/app/main.cpp"
+},
+{
+  "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/core/server/server.cpp.o -c /root/AegisServer/core/server/server.cpp",
+  "file": "/root/AegisServer/core/server/server.cpp"
+},
+{
+  "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/core/net/epoller.cpp.o -c /root/AegisServer/core/net/epoller.cpp",
+  "file": "/root/AegisServer/core/net/epoller.cpp"
+},
+{
+  "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/core/net/socket_util.cpp.o -c /root/AegisServer/core/net/socket_util.cpp",
+  "file": "/root/AegisServer/core/net/socket_util.cpp"
+},
+{
+  "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/core/http/http_request.cpp.o -c /root/AegisServer/core/http/http_request.cpp",
+  "file": "/root/AegisServer/core/http/http_request.cpp"
+},
+{
+  "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/core/http/http_response.cpp.o -c /root/AegisServer/core/http/http_response.cpp",
+  "file": "/root/AegisServer/core/http/http_response.cpp"
+},
+{
+  "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/core/http/http_conn.cpp.o -c /root/AegisServer/core/http/http_conn.cpp",
+  "file": "/root/AegisServer/core/http/http_conn.cpp"
+},
+{
+  "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/core/buffer/buffer.cpp.o -c /root/AegisServer/core/buffer/buffer.cpp",
+  "file": "/root/AegisServer/core/buffer/buffer.cpp"
+},
+{
+  "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/core/metrics/metrics.cpp.o -c /root/AegisServer/core/metrics/metrics.cpp",
+  "file": "/root/AegisServer/core/metrics/metrics.cpp"
+},
+{
+  "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/modules/guard/connection_guard.cpp.o -c /root/AegisServer/modules/guard/connection_guard.cpp",
+  "file": "/root/AegisServer/modules/guard/connection_guard.cpp"
+},
+{
+  "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/core/threadpool/thread_pool.cpp.o -c /root/AegisServer/core/threadpool/thread_pool.cpp",
+  "file": "/root/AegisServer/core/threadpool/thread_pool.cpp"
+},
+{
+  "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/core/timer/timer_manager.cpp.o -c /root/AegisServer/core/timer/timer_manager.cpp",
+  "file": "/root/AegisServer/core/timer/timer_manager.cpp"
+},
+{
+  "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/core/config/config.cpp.o -c /root/AegisServer/core/config/config.cpp",
+  "file": "/root/AegisServer/core/config/config.cpp"
+},
+{
+  "directory": "/root/AegisServer/build",
+  "command": "/usr/bin/c++  -I/root/AegisServer -Wall -Wextra -Wpedantic -O2 -std=c++17 -o CMakeFiles/aegis_server.dir/core/log/logger.cpp.o -c /root/AegisServer/core/log/logger.cpp",
+  "file": "/root/AegisServer/core/log/logger.cpp"
+}
+]

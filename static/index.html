@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>多角色互动登录界面</title>
+    <style>
+        /* 基础重置与页面布局 */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f8; /* 浅灰偏紫背景，提升质感 */
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .main-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        /* --- 角色群组舞台 --- */
+        .character-group {
+            position: relative;
+            width: 320px;
+            height: 320px;
+        }
+
+        /* 角色的通用属性 */
+        .char {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        /* 眼睛与瞳孔的基础样式 */
+        .eye {
+            background-color: #ffffff;
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: height 0.15s, margin-top 0.15s;
+        }
+        .pupil {
+            background-color: #1a1a1a;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 平滑眼球跟随的微小延迟 */
+            transition: transform 0.03s linear, opacity 0.15s;
+        }
+
+        /* 闭眼状态控制（通过父级 .hide-eyes 触发） */
+        .character-group.hide-eyes .eye {
+            height: 4px !important; /* 强制压缩高度 */
+        }
+        .character-group.hide-eyes .pupil {
+            opacity: 0; /* 隐藏瞳孔 */
+        }
+
+        /* --- 具体角色定制 --- */
+        /* 1. 紫色高个子 */
+        .char-purple {
+            width: 120px;
+            height: 220px;
+            background-color: #7b3dff;
+            border-radius: 12px;
+            bottom: 0;
+            left: 80px;
+            padding-top: 40px;
+            gap: 15px;
+            z-index: 2;
+        }
+        .char-purple .eye { width: 28px; height: 28px; }
+        .character-group.hide-eyes .char-purple .eye { margin-top: 12px; }
+        .char-purple .pupil { width: 12px; height: 12px; }
+
+        /* 2. 橙色胖半圆 */
+        .char-orange {
+            width: 180px;
+            height: 120px;
+            background-color: #ff8c42;
+            border-radius: 180px 180px 20px 20px; /* 半圆形态 */
+            bottom: 0;
+            left: -20px;
+            padding-top: 50px;
+            gap: 20px;
+            z-index: 3;
+        }
+        .char-orange .eye { width: 24px; height: 24px; }
+        .character-group.hide-eyes .char-orange .eye { margin-top: 10px; }
+        .char-orange .pupil { width: 10px; height: 10px; }
+
+        /* 3. 黄色胶囊体 */
+        .char-yellow {
+            width: 80px;
+            height: 150px;
+            background-color: #ffca3a;
+            border-radius: 40px;
+            bottom: 0;
+            right: 10px;
+            padding-top: 30px;
+            gap: 10px;
+            z-index: 4;
+        }
+        .char-yellow .eye { width: 20px; height: 20px; }
+        .character-group.hide-eyes .char-yellow .eye { margin-top: 8px; }
+        .char-yellow .pupil { width: 8px; height: 8px; }
+
+        /* 4. 绿色小圆 */
+        .char-green {
+            width: 70px;
+            height: 70px;
+            background-color: #8ac926;
+            border-radius: 50%;
+            bottom: 150px;
+            left: 30px;
+            padding-top: 20px;
+            gap: 8px;
+            z-index: 1;
+        }
+        .char-green .eye { width: 16px; height: 16px; }
+        .character-group.hide-eyes .char-green .eye { margin-top: 6px; }
+        .char-green .pupil { width: 6px; height: 6px; }
+
+        /* 5. 蓝色小圆 */
+        .char-blue {
+            width: 80px;
+            height: 80px;
+            background-color: #1982c4;
+            border-radius: 50%;
+            bottom: 120px;
+            right: 40px;
+            padding-top: 25px;
+            gap: 12px;
+            z-index: 1;
+        }
+        .char-blue .eye { width: 22px; height: 22px; }
+        .character-group.hide-eyes .char-blue .eye { margin-top: 9px; }
+        .char-blue .pupil { width: 10px; height: 10px; }
+
+
+        /* --- 登录表单样式 --- */
+        .login-box {
+            background: #ffffff;
+            width: 340px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+        }
+        .logo-placeholder {
+            width: 30px;
+            height: 30px;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            margin: 0 auto 20px;
+            transform: rotate(45deg);
+        }
+        .login-box h2 {
+            text-align: center;
+            margin: 0 0 8px 0;
+            color: #1a1a1a;
+            font-size: 24px;
+        }
+        .login-box p {
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e1e1e1;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            border-color: #7b3dff;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #1a1a1a;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .login-btn:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="character-group" id="characterGroup">
+            <div class="char char-purple">
+                <div class="eye"><div class="pupil"></div></div>
+                <div class="eye"><div class="pupil"></div></div>
+            </div>
+            <div class="char char-orange">
+                <div class="eye"><div class="pupil"></div></div>
+                <div class="eye"><div class="pupil"></div></div>
+            </div>
+            <div class="char char-yellow">
+                <div class="eye"><div class="pupil"></div></div>
+                <div class="eye"><div class="pupil"></div></div>
+            </div>
+            <div class="char char-green">
+                <div class="eye"><div class="pupil"></div></div>
+                <div class="eye"><div class="pupil"></div></div>
+            </div>
+            <div class="char char-blue">
+                <div class="eye"><div class="pupil"></div></div>
+                <div class="eye"><div class="pupil"></div></div>
+            </div>
+        </div>
+
+        <div class="login-box">
+            <div class="logo-placeholder"></div>
+            <h2>Welcome back!</h2>
+            <p>Please enter your details</p>
+            
+            <div class="input-group">
+                <input type="email" placeholder="Email" id="emailInput">
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password" id="passwordInput">
+            </div>
+            
+            <button class="login-btn">Log In</button>
+        </div>
+    </div>
+
+    <script>
+        // 获取关键 DOM 元素
+        const characterGroup = document.getElementById('characterGroup');
+        const pupils = document.querySelectorAll('.pupil');
+        const passwordInput = document.getElementById('passwordInput');
+
+        // 维护闭眼状态，避免不必要的数学计算
+        let isEyesClosed = false;
+
+        // 密码框聚焦：所有角色集体闭眼
+        passwordInput.addEventListener('focus', () => {
+            isEyesClosed = true;
+            characterGroup.classList.add('hide-eyes');
+            // 复位所有瞳孔位置，确保闭眼时瞳孔在正中间
+            pupils.forEach(pupil => {
+                pupil.style.transform = `translate(-50%, -50%)`;
+            });
+        });
+
+        // 密码框失焦：所有角色集体睁眼
+        passwordInput.addEventListener('blur', () => {
+            isEyesClosed = false;
+            characterGroup.classList.remove('hide-eyes');
+        });
+
+        // 全局鼠标移动监听，实现统一视角跟随
+        document.addEventListener('mousemove', (event) => {
+            // 严谨性检查：如果在闭眼状态，直接阻断逻辑执行
+            if (isEyesClosed) return;
+
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+
+            // 遍历计算页面上每一个瞳孔的位置
+            pupils.forEach(pupil => {
+                // 1. 获取当前眼睛及其尺寸边界
+                const eye = pupil.parentElement;
+                const eyeRect = eye.getBoundingClientRect();
+                
+                // 2. 推导当前眼白在屏幕中的绝对中心坐标
+                const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+                const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+
+                // 3. 计算相对位移向量
+                const deltaX = mouseX - eyeCenterX;
+                const deltaY = mouseY - eyeCenterY;
+
+                // 4. 计算角度与实际距离
+                const angle = Math.atan2(deltaY, deltaX);
+                const distance = Math.hypot(deltaX, deltaY);
+                
+                // 5. 约束计算：瞳孔不能超出眼白边界
+                // 计算当前眼睛允许的最大活动半径
+                const maxRadius = (eyeRect.width - pupil.offsetWidth) / 2;
+                
+                // 引入 0.08 的缩放因子，让鼠标离得很远时，眼球也不会死死贴在眼角，显得更自然
+                const moveDistance = Math.min(distance * 0.08, maxRadius);
+
+                // 6. 极坐标转笛卡尔坐标，计算最终偏移量
+                const translateX = moveDistance * Math.cos(angle);
+                const translateY = moveDistance * Math.sin(angle);
+
+                // 7. 应用偏移量，注意基于 CSS 中的 translate(-50%, -50%) 进行计算
+                pupil.style.transform = `translate(calc(-50% + ${translateX}px), calc(-50% + ${translateY}px))`;
+            });
+        });
+    </script>
+</body>
+</html>
